@@ -1,5 +1,5 @@
 WIFI_SSID = "Tele2_B6FE86"
-WIFI_PASS = "djr4wxyh"
+WIFI_PASS = "password"
 
 # Ubidots settings
 UBIDOTS_TOKEN = "token"
