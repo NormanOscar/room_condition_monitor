@@ -1,0 +1,2 @@
+WIFI_SSID = "Tele2_B6FE86"
+WIFI_PASS = "djr4wxyh"
