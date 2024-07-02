@@ -2,14 +2,7 @@ from machine import Pin, ADC
 from dht import DHT11
 import time
 import urequests as requests
-
-# Ubidots settings
-UBIDOTS_TOKEN = "BBUS-g2w4CMny56Ahb6eomdc6Zx0T3KBQFr"
-UBIDOTS_DEVICE_LABEL = "raspberrypi_pico_w"
-UBIDOTS_VARIABLE_LABEL_TEMP = "temperature"
-UBIDOTS_VARIABLE_LABEL_HUMIDITY = "humidity"
-UBIDOTS_VARIABLE_LABEL_LIGHT = "light_intensity"
-UBIDOTS_URL = f"http://industrial.api.ubidots.com/api/v1.6/devices/picowboard/"
+import keys
 
 # Set up DHT11 sensor
 dht_pin = Pin(15, Pin.IN, Pin.PULL_UP)
@@ -41,14 +34,14 @@ def read_light_intensity():
 
 # Function to send data to Ubidots
 def send_to_ubidots(temperature, humidity, light_intensity):
-    headers = {"X-Auth-Token": UBIDOTS_TOKEN, "Content-Type": "application/json"}
+    headers = {"X-Auth-Token": keys.UBIDOTS_TOKEN, "Content-Type": "application/json"}
     data = {
-        UBIDOTS_VARIABLE_LABEL_TEMP: temperature,
-        UBIDOTS_VARIABLE_LABEL_HUMIDITY: humidity,
-        UBIDOTS_VARIABLE_LABEL_LIGHT: light_intensity
+        keys.UBIDOTS_VARIABLE_LABEL_TEMP: temperature,
+        keys.UBIDOTS_VARIABLE_LABEL_HUMIDITY: humidity,
+        keys.UBIDOTS_VARIABLE_LABEL_LIGHT: light_intensity
     }
     try:
-        response = requests.post(UBIDOTS_URL, headers=headers, json=data)
+        response = requests.post(keys.UBIDOTS_URL, headers=headers, json=data)
         response.close()
         print("Data sent to Ubidots")
     except Exception as e:
