@@ -2,7 +2,7 @@ WIFI_SSID = "Tele2_B6FE86"
 WIFI_PASS = "djr4wxyh"
 
 # Ubidots settings
-UBIDOTS_TOKEN = "BBUS-g2w4CMny56Ahb6eomdc6Zx0T3KBQFr"
+UBIDOTS_TOKEN = "token"
 UBIDOTS_DEVICE_LABEL = "raspberrypi_pico_w"
 UBIDOTS_VARIABLE_LABEL_TEMP = "temperature"
 UBIDOTS_VARIABLE_LABEL_HUMIDITY = "humidity"
